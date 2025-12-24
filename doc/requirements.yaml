@@ -1,0 +1,69 @@
+# 要件定義の明確化（例：config/requirements.yaml）
+functional_requirements:
+  task_switching:
+    method: "GUI Button (PyQt6)"
+    state_preservation: false  # タスク切替時は常にリセット
+    reset_confirmation: true   # 誤操作防止のため確認ダイアログ表示
+  
+  parameter_randomization:
+    timing: "pre_trial"  # 試行開始前に固定（試行中は変更不可）
+    distribution: "gaussian"
+    gui_controls:
+      - parameter: "mass_stddev"
+        range: [0.0, 0.5]  # kg単位
+      - parameter: "damping_stddev"
+        range: [0.0, 2.0]  # Ns/m単位
+```
+
+---
+
+### 👩‍🔬 P2（学術研究者）：新規性と文献サーベイ
+
+#### 🚨 Critical Gap：「微分可能制御×HMI」の先行研究が未調査
+
+現在の文献リストは以下の4件：
+1. Innes+ (2019) - Julia微分可能プログラミングの一般論
+2. Moses+ (2020) - Enzyme.jlの技術
+3. McRuer+ (1967) - クロスオーバーモデル（古典）
+4. Jex+ (1966) - CIT（古典）
+
+**問題点**：  
+- 「微分可能シミュレーション」の**HMI応用**例が欠如  
+- 「リアルタイム最適制御」の**人間-in-the-loop**文脈での先行研究が未参照  
+- 「適応制御とHMI」の関係性（特にMRAC vs. 本手法の差異）が未議論
+
+#### 📚 追加すべき文献（緊急度：高）
+
+##### A. 微分可能シミュレーション×ロボティクス
+```
+[5] Freeman, C. D., et al. (2021). "Brax - A Differentiable Physics Engine 
+    for Large Scale Rigid Body Simulation." arXiv:2106.13281.
+    → Google Braxとの技術的差異を明示すべき
+    
+[6] Heiden, E., et al. (2021). "NeuralSim: Augmenting Differentiable 
+    Simulators with Neural Networks." ICRA 2021.
+    → 微分可能物理演算とニューラルネットの統合事例
+```
+
+##### B. リアルタイム最適制御×HMI
+```
+[7] Todorov, E. & Jordan, M. I. (2002). "Optimal feedback control as a 
+    theory of motor coordination." Nature Neuroscience, 5(11), 1226-1235.
+    → 人間の運動制御理論として最適制御を位置づける古典
+    
+[8] Li, W., & Todorov, E. (2004). "Iterative Linear Quadratic Regulator 
+    Design for Nonlinear Biological Movement Systems." ICINCO 2004.
+    → iLQRの生体運動応用（本研究のSTA/IMMとの比較軸）
+```
+
+##### C. 適応制御とHMI
+```
+[9] Marchal-Crespo, L., & Reinkensmeyer, D. J. (2009). "Review of control 
+    strategies for robotic movement training after neurologic injury." 
+    Journal of NeuroEngineering and Rehabilitation, 6(20).
+    → リハビリロボットにおける適応制御のレビュー（MRACとの対比）
+    
+[10] Emken, J. L., & Reinkensmeyer, D. J. (2005). "Robot-enhanced motor 
+     learning: accelerating internal model formation during locomotion by 
+     transient dynamic amplification." Journal of Neurophysiology, 94(1).
+     → 「内部モデル形成」支援の先行例（本研究のIMMとの関連）

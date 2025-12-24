@@ -1,0 +1,106 @@
+# =======================
+# UHTP Project .gitignore
+# =======================
+
+# -----------------------
+# OS Generated Files
+# -----------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# -----------------------
+# IDE / Editor
+# -----------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# -----------------------
+# Julia
+# -----------------------
+julia/Manifest.toml
+julia/*.jl.cov
+julia/*.jl.*.cov
+julia/*.jl.mem
+julia/.julia/
+*.ji
+
+# -----------------------
+# Python
+# -----------------------
+python/__pycache__/
+python/**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+python/build/
+python/develop-eggs/
+python/dist/
+python/downloads/
+python/eggs/
+python/.eggs/
+python/lib/
+python/lib64/
+python/parts/
+python/sdist/
+python/var/
+python/wheels/
+python/*.egg-info/
+python/.installed.cfg
+python/*.egg
+python/.env
+python/.venv/
+python/venv/
+python/ENV/
+
+# -----------------------
+# Experiment Data
+# -----------------------
+data/*
+!data/.gitkeep
+*.h5
+*.hdf5
+experiments/
+
+# -----------------------
+# Logs
+# -----------------------
+logs/
+*.log
+
+# -----------------------
+# Temporary Files
+# -----------------------
+tmp/
+temp/
+*.tmp
+*.bak
+
+# -----------------------
+# Secrets / Credentials
+# -----------------------
+.env
+.env.local
+*.pem
+*.key
+secrets.yaml
+credentials.json
+
+# -----------------------
+# Build Artifacts
+# -----------------------
+build/
+dist/
+*.exe
+*.dll
+*.dylib
