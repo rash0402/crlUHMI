@@ -44,12 +44,19 @@ crlUHMI/
 │   └── tests/      # テスト
 ├── config/         # 設定ファイル（YAML）
 ├── doc/            # ドキュメント
-│   ├── AI-DLC_base_UnifiedHMITrackingPlatform.md  # 設計仕様書
+│   ├── UHTP_AI-DLC_Proposal.md                    # 設計仕様書
 │   └── UHTP_Implementation_Requirements.md        # 実装要件定義書
 └── data/           # 実験データ（gitignore）
 ```
 
 ## 必要環境
+
+### 開発環境パス
+
+| ツール | パス |
+|--------|------|
+| **Python venv** | `~/local/venv` |
+| **Julia** | `~/.juliaup/bin/julia` |
 
 ### Julia (v1.10+)
 
@@ -78,27 +85,36 @@ pyyaml>=6.0.1
 git clone https://github.com/rash0402/crlUHMI.git
 cd crlUHMI
 
-# Julia依存関係のインストール
-cd julia
-julia --project=. -e 'using Pkg; Pkg.instantiate()'
-
-# Python依存関係のインストール
-cd ../python
-pip install -r requirements.txt
+# セットアップ（必要なパッケージのみインストール）
+./scripts/setup.sh
 
 # 実行（2つのターミナルで）
 # Terminal 1: Julia Core
-cd julia && julia --project=. src/UHTP.jl
+./scripts/start_julia.sh
 
 # Terminal 2: Python Viewer
-cd python && python -m src.main
+./scripts/start_python.sh
+
+# または統合起動
+./scripts/run_experiment.sh
+```
+
+### 手動セットアップ
+
+```bash
+# Julia依存関係のインストール
+~/.juliaup/bin/julia --project=julia -e 'using Pkg; Pkg.instantiate()'
+
+# Python依存関係のインストール（venv使用）
+source ~/local/venv/bin/activate
+pip install -r python/requirements.txt
 ```
 
 ## ドキュメント
 
 | ドキュメント | 説明 |
 |-------------|------|
-| [設計仕様書](doc/AI-DLC_base_UnifiedHMITrackingPlatform.md) | 研究設計・理論的基盤 |
+| [設計仕様書](doc/UHTP_AI-DLC_Proposal.md) | 研究設計・理論的基盤 |
 | [実装要件定義書](doc/UHTP_Implementation_Requirements.md) | 機能要件・アーキテクチャ |
 | [CLAUDE.md](CLAUDE.md) | Claude Code用ガイド |
 

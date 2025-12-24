@@ -3,7 +3,7 @@
 **作成日**: 2025-12-24
 **バージョン**: 1.1.0
 **ステータス**: 🟢 Approved for PoC
-**対象文書**: AI-DLC_base_UnifiedHMITrackingPlatform.md v2.2.0
+**対象文書**: UHTP_AI-DLC_Proposal.md v2.2.0
 
 ---
 
@@ -218,7 +218,7 @@
 crlUHMI/
 ├── CLAUDE.md                    # Claude Code用ガイド
 ├── doc/
-│   ├── AI-DLC_base_UnifiedHMITrackingPlatform.md
+│   ├── UHTP_AI-DLC_Proposal.md
 │   ├── UHTP_Implementation_Requirements.md  # この文書
 │   └── requirements.yaml
 ├── config/

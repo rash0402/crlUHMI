@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 | Document | Description |
 |----------|-------------|
-| `doc/AI-DLC_base_UnifiedHMITrackingPlatform.md` | Research design specification (v2.1.0) |
+| `doc/UHTP_AI-DLC_Proposal.md` | Research design specification (v2.2.0) |
 | `doc/UHTP_Implementation_Requirements.md` | Implementation requirements (v1.0.0) |
 
 ## Architecture
@@ -109,6 +109,31 @@ crlUHMI/
 3. **Phase 3**: HDF5 logging + real-time plot + results summary screen + tests
 
 **PoC Completion Criteria**: All 3 tasks × All 5 devices working
+
+## Development Environment
+
+### Paths
+
+| Tool | Path |
+|------|------|
+| **Python venv** | `~/local/venv` |
+| **Julia** | `~/.juliaup/bin/julia` |
+
+### Setup
+
+```bash
+# Initial setup (checks existing packages, installs only if needed)
+./scripts/setup.sh
+
+# Run Julia Core
+./scripts/start_julia.sh
+
+# Run Python Viewer (separate terminal)
+./scripts/start_python.sh
+
+# Or run both together
+./scripts/run_experiment.sh
+```
 
 ## Language
 
